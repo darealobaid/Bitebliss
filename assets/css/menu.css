@@ -1,0 +1,249 @@
+
+.menu-page {
+    padding: 60px 8% 110px;
+    min-height: 100vh;
+}
+
+.menu-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.menu-heading h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(45px, 5vw, 75px);
+    margin: 15px 0;
+    letter-spacing: -2px;
+}
+
+.menu-heading h1 span {
+    color: var(--orange);
+}
+
+.menu-heading p {
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 55px;
+}
+
+.filter-btn {
+    padding: 13px 25px;
+    border: 1px solid #eadfd3;
+    background: white;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 700;
+    transition: all .3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--orange);
+    color: white;
+    border-color: var(--orange);
+    transform: translateY(-3px);
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.food-card {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px #2b21180a;
+    transition: box-shadow .35s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.food-card:hover {
+    box-shadow: 0 25px 60px #2b211821;
+}
+
+.food-image {
+    height: 240px;
+    background: #fff0dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.food-image img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    transition: transform .5s ease;
+    filter: drop-shadow(0 15px 15px #2b211825);
+}
+
+.food-card:hover .food-image img {
+    transform: scale(1.12) rotate(-5deg);
+}
+
+.food-info {
+    padding: 25px;
+}
+
+.food-category {
+    font-size: 12px;
+    color: var(--orange);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.food-info h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.food-info p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 48px;
+}
+
+.food-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.food-bottom strong {
+    font-size: 23px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.add-btn {
+    background: var(--orange);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 13px 20px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .25s, background .25s;
+}
+
+.add-btn:hover {
+    background: #e65d0b;
+    transform: scale(1.07);
+}
+
+@media (max-width: 950px) {
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-page {
+        padding: 35px 5% 70px;
+    }
+
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .food-image {
+        height: 220px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .food-card,
+    .food-image img,
+    .filter-btn {
+        transition: none;
+    }
+}
+
+
+/* Animated cart notification */
+
+.cart-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    background: #2B2118;
+    color: white;
+
+    padding: 18px 25px;
+    border-radius: 18px;
+
+    box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+
+    opacity: 0;
+    transform: translateY(30px);
+    pointer-events: none;
+
+    transition: opacity 0.35s ease,
+                transform 0.35s ease;
+}
+
+.cart-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-icon {
+    width: 42px;
+    height: 42px;
+
+    background: #F97316;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.toast-content strong {
+    font-size: 15px;
+}
+
+.toast-content p {
+    font-size: 13px;
+    color: #d6cbc3;
+    margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+    .cart-toast {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cart-toast {
+        transition: none;
+    }
+}
